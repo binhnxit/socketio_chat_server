@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 let channelSchema = new mongoose.Schema({
-  _id: ObjectId,
   client: {
     id: Number,
     name: String,

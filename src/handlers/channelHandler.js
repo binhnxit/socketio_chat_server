@@ -1,6 +1,7 @@
 'use strict'
 
 import {REQUEST_CREATE_CHANNEL} from '../constants/events'
+import ChannelService from '../services/channelService'
 
 export default class ChannelHandle {
   constructor(socket, io) {
@@ -13,7 +14,10 @@ export default class ChannelHandle {
   createChannel() {
     this.socket.on(REQUEST_CREATE_CHANNEL, (data) => {
       console.log('Request create channel', data)
-      this.socket.emit('message', {hello: "how are you?"})
+      const params = JSON.parse(data)
+      const channelService = new ChannelService()
+      channelService.create(params)
+      this.socket.emit('message', {created: "ok"})
     })
   }
 }
