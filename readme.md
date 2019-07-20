@@ -1,4 +1,4 @@
-# DMM Chat Server Application
+# SocketIO Chat Server Application
 
 ### Install package 
 `yarn install`
