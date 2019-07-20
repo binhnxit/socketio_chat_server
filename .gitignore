@@ -1,0 +1,11 @@
+/node_modules
+/dist
+.env
+.idea
+.idea/*
+.DS_Store
+composer.lock
+package-lock.json
+idea/workspace.xml
+yarn-error.log
+yarn.lock
