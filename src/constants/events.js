@@ -8,3 +8,5 @@ export const DEFAULT_SOCKETIO_EVENTS = [
   'newListener',
   'removeListener'
 ]
+
+export const REQUEST_CREATE_CHANNEL = 'REQUEST_CREATE_CHANNEL'
