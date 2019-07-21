@@ -3,7 +3,7 @@
 import {REQUEST_CREATE_CHANNEL} from '../constants/events'
 import ChannelService from '../services/channelService'
 
-export default class ChannelHandle {
+export default class ChannelHandler {
   constructor(socket, io) {
     this.socket = socket
     this.io = io
