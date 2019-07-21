@@ -1,18 +1,11 @@
 import mongoose from 'mongoose'
+let ObjectId = mongoose.Schema.Types.ObjectId
 
 let channelSchema = new mongoose.Schema({
-  client: {
-    id: Number,
-    name: String,
-    avatar: String,
-    badge: {type: Number, default: 0}
-  },
-  worker: {
-    id: Number,
-    name: String,
-    age: Number,
-    avatar: String,
-    badge: {type: Number, default: 0}
+  members: [ObjectId],
+  badge: {
+    worker: Number,
+    client: Number
   },
   star: {type: Boolean, default: false},
   createdAt: {type: Date, default: new Date()},

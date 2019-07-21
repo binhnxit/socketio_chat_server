@@ -1,11 +1,12 @@
 import mongoose from 'mongoose'
+let ObjectId = mongoose.Schema.Types.ObjectId
 
 let messageSchema = new mongoose.Schema({
   channelId: ObjectId,
-  sender: Number,
+  author: ObjectId,
   body: String,
   isAttachment: {type: Boolean, default: false},
-  read: {type: Boolean, default: false},
+  seenAt: {type: Date, default: null},
   createdAt: {type: Date, default: new Date()}
 })
 

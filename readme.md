@@ -1,9 +1,11 @@
-# SocketIO Chat Server Application
+# SocketIO Chat Server Application Structure
 
 ### Install package 
 `yarn install`
 ### Copy env file
 `cp .env.example .env`
+### Run for development
+`yarn start`
 ### Run build
 `yarn build`
 ### Run serve

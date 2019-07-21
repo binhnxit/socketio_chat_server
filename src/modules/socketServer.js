@@ -4,8 +4,9 @@ import socket from 'socket.io'
 import BaseHandler from '../handlers/baseHandler'
 import jwt from 'jsonwebtoken'
 import _ from 'underscore'
-import ChannelHandler from "../handlers/channelHandler"
+import ChannelHandler from '../handlers/channelHandler'
 import {AUTHENTICATE} from '../constants/events'
+import UserHandler from '../handlers/userHandler'
 
 export default class SocketServer {
   /*
@@ -62,6 +63,7 @@ export default class SocketServer {
     console.log('Handle')
     this.handlers['baseHandler'] = new BaseHandler(socket, this.io)
     this.handlers['channelHandler'] = new ChannelHandler(socket, this.io)
+    this.handlers['userHandler'] = new UserHandler(socket, this.io)
   }
 
   onError(error) {
