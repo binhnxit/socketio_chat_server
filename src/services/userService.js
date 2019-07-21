@@ -5,6 +5,7 @@ export default class userService {
   }
 
   async create(params) {
+    params.createdAt = new Date()
     const conditions = {
       userId: params.userId,
       role: params.role

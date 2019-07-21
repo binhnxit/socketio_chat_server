@@ -46,7 +46,8 @@ export default class SocketServer {
   onConnection(socket) {
     console.log('A client is connected socket server.')
 
-    this.applyAuthMiddleware(socket)
+    //this.applyAuthMiddleware(socket)
+    this.setHandlers(socket)
 
     socket.on('disconnect', this.onDisconnect)
   }

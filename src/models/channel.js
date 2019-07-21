@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 let ObjectId = mongoose.Schema.Types.ObjectId
 
 let channelSchema = new mongoose.Schema({
-  members: [ObjectId],
+  _workerId: ObjectId,
+  _clientId: ObjectId,
   badge: {
     worker: Number,
     client: Number

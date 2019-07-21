@@ -1,5 +1,5 @@
-export const AUTHENTICATE = 'AUTHENTICATE'
-export const REQUEST_ROOM = 'REQUEST_ROOM'
+export const AUTHENTICATE = 'authenticate'
+export const REQUEST_ROOM = 'request_room'
 export const DEFAULT_SOCKETIO_EVENTS = [
   'error',
   'connect',
@@ -10,7 +10,7 @@ export const DEFAULT_SOCKETIO_EVENTS = [
   'removeListener'
 ]
 
-export const REQUEST_REGISTER_CHANNEL = 'REQUEST_REGISTER_CHANNEL'
-export const REQUEST_REGISTER_USER = 'REQUEST_REGISTER_USER'
-export const RESPONSE_SUCCESS = 'RESPONSE_SUCCESS'
-export const RESPONSE_ERROR = 'RESPONSE_ERROR'
+export const REQUEST_REGISTER_CHANNEL = 'request_register_channel'
+export const REQUEST_REGISTER_USER = 'request_register_user'
+export const RESPONSE_SUCCESS = 'response_success'
+export const RESPONSE_ERROR = 'response_error'

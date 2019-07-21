@@ -13,7 +13,6 @@ export default class UserHandler {
 
   registerUser() {
     this.socket.on(REQUEST_REGISTER_USER, (data) => {
-      console.log('Request create user', data)
       const params = JSON.parse(data)
       const userService = new UserService()
       const res = userService.create(params)
