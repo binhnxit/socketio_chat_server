@@ -13,6 +13,7 @@ export default class BaseHandler {
   message() {
     this.socket.on(REQUEST_ROOM, (data) => {
       console.log('Request room', data)
+      console.log(this.socket.rooms)
     })
   }
 }

@@ -7,6 +7,7 @@ import _ from 'underscore'
 import ChannelHandler from '../handlers/channelHandler'
 import {AUTHENTICATE} from '../constants/events'
 import UserHandler from '../handlers/userHandler'
+import MessageHandler from '../handlers/messageHandler'
 
 export default class SocketServer {
   /*
@@ -49,15 +50,16 @@ export default class SocketServer {
     //this.applyAuthMiddleware(socket)
     this.setHandlers(socket)
 
-    socket.on('disconnect', this.onDisconnect)
+    socket.on('disconnect', (socket) => this.onDisconnect(socket))
   }
 
 
   /*
    * SocketServer onDisconnect event
    */
-  onDisconnect() {
+  onDisconnect(socket) {
     console.log('A client is disconnected.')
+    socket.leave(socket.activeChannel)
   }
 
   setHandlers(socket) {
@@ -65,6 +67,7 @@ export default class SocketServer {
     this.handlers['baseHandler'] = new BaseHandler(socket, this.io)
     this.handlers['channelHandler'] = new ChannelHandler(socket, this.io)
     this.handlers['userHandler'] = new UserHandler(socket, this.io)
+    this.handlers['messageHandler'] = new MessageHandler(socket, this.io)
   }
 
   onError(error) {

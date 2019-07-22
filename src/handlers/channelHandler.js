@@ -1,5 +1,12 @@
 'use strict'
-import {REQUEST_REGISTER_CHANNEL, RESPONSE_SUCCESS, RESPONSE_ERROR} from '../constants/events'
+import
+{
+  REQUEST_REGISTER_CHANNEL,
+  RESPONSE_SUCCESS,
+  RESPONSE_ERROR,
+  REQUEST_JOIN_CHANNEL,
+  REQUEST_LEAVE_CHANNEL
+} from '../constants/events'
 import ChannelService from '../services/channelService'
 
 export default class ChannelHandler {
@@ -7,10 +14,12 @@ export default class ChannelHandler {
     this.socket = socket
     this.io = io
 
-    this.registerChannel()
+    this.register()
+    this.join()
+    this.leave()
   }
 
-  registerChannel() {
+  register() {
     this.socket.on(REQUEST_REGISTER_CHANNEL, (data) => {
       const params = JSON.parse(data)
       const channelService = new ChannelService()
@@ -20,6 +29,21 @@ export default class ChannelHandler {
       } catch (e) {
         this.socket.emit(RESPONSE_ERROR, {created: "fail", data: null})
       }
+    })
+  }
+
+  join() {
+    this.socket.on(REQUEST_JOIN_CHANNEL, (data) => {
+      const {channelId} = JSON.parse(data)
+      this.socket.join(channelId)
+      this.socket.activeChannel = channelId
+    })
+  }
+
+  leave() {
+    this.socket.on(REQUEST_LEAVE_CHANNEL, (data) => {
+      const {channelId} = JSON.parse(data)
+      this.socket.leave(channelId)
     })
   }
 }

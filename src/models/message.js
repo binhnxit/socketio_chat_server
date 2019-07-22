@@ -6,7 +6,7 @@ let messageSchema = new mongoose.Schema({
   author: ObjectId,
   body: String,
   isAttachment: {type: Boolean, default: false, required: true},
-  seenAt: {type: Date, default: null, required: true},
+  seenAt: {type: Date, default: null},
   createdAt: {type: Date, default: new Date(), required: true}
 })
 
